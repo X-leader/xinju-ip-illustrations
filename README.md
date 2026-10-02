@@ -1,102 +1,199 @@
 # Xinju IP 配图 Skill
 
-把中文正文或短口播中的观点、流程、状态和隐喻，转化为由迷你人物 IP 亲自参与的正文配图。
+把中文文章、短口播和观点句，转化为由迷你人物 IP 亲自参与的正文配图。
 
-![Xinju IP 四视图](xinju-ip-illustrations/assets/ip/xinju-ip-four-view.png)
+![Xinju 演示：客服工作流](examples/images/customer-service-workflow-lineart.jpg)
+
+输入一段中文内容，Skill 会提炼其中最值得被看见的观点、流程、结构或隐喻，先给出配图方案，再按你选择的风格生成图片。新安装默认使用 Xinju，也可以换成你上传的真人照片或已有卡通 IP。
 
 ## 核心能力
 
-- 默认使用 Xinju 迷你人物 IP。
-- 支持手绘线稿、平涂插画、拼贴漫画三种渲染风格。
-- 正文配图采用“方案说明 → 选择风格 → 确认后生图”的两阶段流程。
-- 支持把用户明确上传并获授权的真人照片转成迷你人物 IP。
-- 支持把用户已有的完整人物 IP 直接设为活动人物。
-- 新人物直接覆盖当前活动人物，不维护历史人物列表。
-- 用户说“恢复 Xinju”时，可恢复内置默认人物。
-- 默认生成 16:9 横版正文配图，也可按用户指定画幅原生构图。
+- 为中文文章、短口播和单句观点设计正文配图。
+- 自动提炼认知锚点，并为人物安排清楚的动作、物件和视觉隐喻。
+- 支持手绘线稿、平涂插画、拼贴漫画三种风格。
+- 默认使用 Xinju，也可将真人照片或已有 IP 设为活动人物。
+- 默认生成 16:9 横版图片，也支持按要求原生构图其他画幅。
 
-## 三种风格
+## 工作方式
 
-### 1. 手绘线稿
+```text
+内容输入 → 提炼认知锚点 → 输出配图方案 → 选择最终风格 → 逐张生成并执行质量检查
+```
 
-![手绘线稿风格母板](xinju-ip-illustrations/assets/style/lineart-style-board.png)
+风格编号固定为：
+
+```text
+1：手绘线稿
+2：平涂插画
+3：拼贴漫画
+```
+
+## 案例
+
+### 1. 手绘线稿：客服工作流
+
+**原文**
+
+> 官方展示的客服工作流，会先判断用户意图、情绪、风险信号和是否要求人工，再由代码按照政策决定下一步动作。
+
+**视觉方案**
+
+Xinju 操作一台“政策路由器”，把意图、情绪、风险和人工请求汇入同一条决策路径。
+
+![手绘线稿案例：客服工作流](examples/images/customer-service-workflow-lineart.jpg)
+
+### 2. 平涂插画：工作台核心节点
+
+**原文**
+
+> 参考图是节点编辑器，工作台的核心是任务、日历、内容生产和数据监测。
+
+**视觉方案**
+
+Xinju 在中央工作台操作四个相连节点，用一张图说明产品的核心能力与结构关系。
+
+![平涂插画案例：工作台核心节点](examples/images/workbench-core-flat.jpg)
+
+### 3. 拼贴漫画：信任的证据路径
+
+**原文**
+
+> 信任不是喊出来的，而是一块证据一块证据铺过去。
+
+**视觉方案**
+
+Xinju 把“案例、数据、结果”三块证据铺成跨越断层的道路，让抽象的信任变成可见的积累过程。
+
+![拼贴漫画案例：信任的证据路径](examples/images/trust-evidence-collage.jpg)
+
+## 使用方法
+
+### 1. 直接生成正文配图
+
+新安装默认使用 Xinju；如果已经替换过人物，则自动使用当前活动人物。
+
+```text
+使用 $xinju-ip-illustrations，为下面这段内容生成正文配图：
+
+<粘贴文章、短口播或观点句>
+```
+
+Skill 会先输出配图方案和三种风格。确认方案后，回复风格编号即可生成：
+
+```text
+1：手绘线稿
+2：平涂插画
+3：拼贴漫画
+```
+
+例如：
+
+```text
+确认，选择 1。
+```
+
+### 2. 更换或恢复人物 IP
+
+更换人物只更新活动人物，不会同时生成正文配图。替换完成后，再按照上面的方式发送内容即可。
+
+#### 真人照片生成新 IP
+
+上传一张清晰、完整且已获授权的真人照片，然后发送：
+
+```text
+使用 $xinju-ip-illustrations，用我上传的真人照片生成迷你人物 IP，并直接替换活动人物。
+```
+
+#### 使用已有的人物 IP
+
+上传完整人物图或多视图，然后发送：
+
+```text
+使用 $xinju-ip-illustrations，把我上传的人物 IP 直接设为活动人物，不重新设计。
+```
+
+#### 查看当前人物
+
+```text
+使用 $xinju-ip-illustrations，展示当前活动人物。
+```
+
+#### 恢复默认 Xinju
+
+```text
+使用 $xinju-ip-illustrations，恢复 Xinju。
+```
+
+> Skill 同时只保留一个活动人物。新人物会直接覆盖当前人物；恢复 Xinju 后，后续配图重新使用内置 Xinju。
+
+更多可复制的调用方式见 [`examples/prompts.md`](examples/prompts.md)。
+
+## 三种风格怎么选
+
+| 风格 | 更适合的内容 | 对应案例 |
+| --- | --- | --- |
+| 手绘线稿 | 方法论、工作流、产品观点 | 客服工作流 |
+| 平涂插画 | 产品结构、系统关系、科技概念 | 工作台核心节点 |
+| 拼贴漫画 | 冲突、转折、情绪、抽象隐喻 | 信任的证据路径 |
+
+<details>
+<summary>查看三种风格母板</summary>
+
+### 手绘线稿
 
 纯白背景、黑色手绘细线、浅暖肤色、少量身份色与红橙蓝批注。
 
-### 2. 平涂插画
+![手绘线稿风格母板](xinju-ip-illustrations/assets/style/lineart-style-board.png)
 
-![平涂插画风格母板](xinju-ip-illustrations/assets/style/flat-color-style-board.png)
+### 平涂插画
 
 单一主色场、几何平涂造型、克制的空间明暗与硬边投影。
 
-### 3. 拼贴漫画
+![平涂插画风格母板](xinju-ip-illustrations/assets/style/flat-color-style-board.png)
 
-![拼贴漫画风格母板](xinju-ip-illustrations/assets/style/collage-style-board.png)
+### 拼贴漫画
 
 有色纸面、半调纸偶、手工裁切质感与少量中文批注。
 
+![拼贴漫画风格母板](xinju-ip-illustrations/assets/style/collage-style-board.png)
+
+</details>
+
 ## 安装
 
-克隆仓库：
-
-```bash
-git clone https://github.com/X-leader/xinju-ip-illustrations.git
-cd xinju-ip-illustrations
-```
-
-复制 Skill 到 Codex Skills 目录：
-
-```bash
-mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-cp -R ./xinju-ip-illustrations "${CODEX_HOME:-$HOME/.codex}/skills/"
-```
-
-也可以在 Codex 中直接请求：
+### 在 Codex 中安装
 
 ```text
 请从 https://github.com/X-leader/xinju-ip-illustrations
 安装 xinju-ip-illustrations Skill。
 ```
 
-## 使用方法
+### 手动安装
 
-### 为正文设计配图
-
-```text
-使用 $xinju-ip-illustrations，为下面这段中文正文设计配图：
-
-<粘贴正文>
+```bash
+git clone https://github.com/X-leader/xinju-ip-illustrations.git
+cd xinju-ip-illustrations
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+cp -R ./xinju-ip-illustrations "${CODEX_HOME:-$HOME/.codex}/skills/"
 ```
 
-Skill 会先输出配图方案和三种风格选项。确认方案与风格后，才会逐张生成图片。
-
-### 上传真人照片并替换人物
+安装后可以用下面这句话检查：
 
 ```text
-使用 $xinju-ip-illustrations，
-用我上传的真人照片生成迷你人物 IP，并直接替换活动人物。
+使用 $xinju-ip-illustrations，展示当前活动人物。
 ```
 
-只应上传用户本人或已经获得授权的人物照片。原始照片不会成为本仓库的公开资产。
+## 活动人物机制
 
-### 上传已有人物 IP
+- 新安装默认使用内置 Xinju。
+- 同一时间只保留一个活动人物。
+- 设置新人物会直接覆盖当前活动人物，不维护历史人物列表，也不提供回退上一人物。
+- 发送“恢复 Xinju”可随时恢复内置默认人物。
+- 重新安装或用仓库版本覆盖 Skill，也会恢复仓库自带的 Xinju。
 
-```text
-使用 $xinju-ip-illustrations，
-把我上传的完整人物 IP 直接设为活动人物。
-```
+![Xinju IP 四视图](xinju-ip-illustrations/assets/ip/xinju-ip-four-view.png)
 
-### 恢复默认 Xinju
-
-```text
-使用 $xinju-ip-illustrations，恢复 Xinju。
-```
-
-更多可复制的调用方式见 [`examples/prompts.md`](examples/prompts.md)。
-
-## 更新提示
-
-重新复制仓库中的 Skill 会把活动人物恢复为仓库自带的 Xinju。已经设置自定义人物的用户，应在更新前自行备份：
+如果正在使用自定义人物，更新前请自行备份：
 
 ```text
 xinju-ip-illustrations/assets/ip/active-ip-four-view.png
@@ -105,10 +202,10 @@ xinju-ip-illustrations/references/character-ip.md
 
 ## 隐私
 
-- 仓库只包含内置 Xinju 母板和公开风格资产。
-- 原始真人照片、私人 IP、测试人物档案和测试输出不得提交到仓库。
-- 人物替换只修改用户本地安装目录中的当前活动母板与档案。
-- Skill 不提供人物历史列表，也不会自动保存上一位人物。
+- 只上传本人或已经获得授权的人物照片与 IP 素材。
+- 原始真人照片不会写入 Skill，也不会进入本仓库。
+- 仓库只保留最终活动人物母板、人物档案和公开风格资产。
+- 发布、分享或提交代码前，请检查活动人物是否已经恢复为 Xinju。
 
 ## 项目结构
 
@@ -119,6 +216,7 @@ xinju-ip-illustrations/references/character-ip.md
 ├── NOTICE.md
 ├── THIRD_PARTY_NOTICES.md
 ├── examples/
+│   ├── images/
 │   └── prompts.md
 ├── tools/
 │   └── verify_release.py
