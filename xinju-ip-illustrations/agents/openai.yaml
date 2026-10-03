@@ -1,6 +1,6 @@
 interface:
   display_name: "Xinju IP 配图 Skill"
   short_description: "为中文正文与短口播生成三种风格的 Xinju IP 配图"
-  default_prompt: "Use $xinju-ip-illustrations to 先为这篇中文文章或短口播提出配图方案并提供三种风格选择；我明确上传人物并要求替换时，直接设为活动 IP。"
+  default_prompt: "Use $xinju-ip-illustrations to 先为这篇中文文章或短口播提出配图方案并提供三种风格选择；我回复 1、2 或 3 后直接生成，不再二次确认；我明确上传人物并要求替换时，直接设为活动 IP。"
 policy:
   allow_implicit_invocation: true
