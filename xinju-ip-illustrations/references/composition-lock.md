@@ -9,7 +9,7 @@
 - 使用方案中确认的画幅；默认 16:9 横版，其他比例必须原生构图。
 - 把当前活动人物、默认一个核心物件、必要输入输出、箭头、短标注，以及人物头发最高点、鞋底、投影、动作线、拼贴裁切边等最外侧可见元素视为一个完整视觉组；仅在第二个物件具有不可替代的因果职责时保留它。元素计数与细节预算执行 `composition-patterns.md`。
 - 完整视觉组应当居中、清楚、容易阅读。使用拉远的完整场景取景，背景延伸到画布四边；参考图只能提供人物身份或渲染语言，不能继承参考图的近景、放大倍率或画面密度。
-- 所有 16:9 横版共用一个首稿布局区域：x=12%–88%、y=20%–80%，即中央约 76% 宽、60% 高的区域，顶部和底部预留安静背景带。这里是完整视觉组的近似容纳区域，不是要求宽度和高度同时精确填满。
+- 所有 16:9 横版共用一个首稿布局区域：x=16%–84%、y=20%–80%，即中央约 68% 宽、60% 高的区域，左右各预留约 16%、上下各预留约 20% 的安静背景。这里是完整视觉组的近似容纳区域，不是要求宽度和高度同时精确填满，也不是生成后修正门槛。
 - 保持人物、物件和完整视觉组的自然宽高关系，在该区域内选择尽可能清楚的尺度。先设计适合横版的结构，再以限制更紧的一边决定等比尺度；不能为命中两个百分比横向拉伸、纵向压扁，或为凑满宽度把文字、箭头向外撑开。
 - 所有短标注、箭头端点、输入输出、动作线、头发尖端、鞋底、投影和拼贴外缘都必须收在同一个完整视觉组边界内；先布置全部元素，再用真正最外侧的四个锚点复核边界。不能用一条孤立文字、卡片、牌子、箭头、阴影或装饰边把外接范围顶到画布边缘。
 - “巨大主物件”只表示它相对迷你人物巨大；相对画布仍应保持中等尺度和完整白边，绝不等于铺满画布。
@@ -39,6 +39,13 @@
 - 发现构图过高时，依次处理：减少纵向堆叠 → 把人物移动到物件侧面、斜侧或较低的操作位 → 将输入输出改为横向或紧贴主物件 → 收紧投影、箭头和动作线 → 最后才等比缩放完整视觉组。
 - 上述调整用于首次构图设计，不得改变核心因果、人物决定性动作、物件身份或必须文字。目标是增加上下呼吸，同时保留横向存在感，不能把内容缩成中央小图。
 
+## 横版左右呼吸
+
+- 左右背景带从最外侧的真实可见元素算起：箭头尖端、标签、伸出的手脚、硬边投影、动作线和拼贴边均计入；不能只检查主物件轮廓。左右背景应宽而连续，核心动作仍有清楚的中央重心。
+- 首稿预检发现横向过长时，依次处理：缩短连接线与箭头 → 把输入输出靠近主物件 → 将标签放在物件内或紧邻对应位置 → 收紧投影与拼贴外缘 → 最后才等比缩放完整视觉组。保持核心因果、必要文字、人物自然比例和可读性。
+- 普通结构与 Workflow、三种渲染风格共用这一原则；不得为保持旧版宽度把流程、环形物件、文字或箭头向两侧撑开。
+- 这些调整在首稿设计时完成。生成后只有轻微布局越界或左右留白不完全相等时，直接采用初稿，不追加比例修正。
+
 ## 中间尺度构图规则
 
 中间尺度是三种风格的新默认，不是临时候选：它位于“几乎铺满画面”和“缩成中央小图”之间，让主体保持清晰存在感，同时给四周留出可感知的呼吸空间。
@@ -59,8 +66,8 @@
 
 ```text
 Composition lock — full scene with breathing room:
-Use a pulled-back wide view. Arrange one coherent visual group approximately within x=12%–88% and y=20%–80% of the 16:9 canvas. This is a layout envelope, not an exact width-and-height fill requirement. Preserve natural proportions and use a readable scale within it.
-Include the character, objects, exact labels, arrow tips, hair, soles, shadows, motion marks and collage edges when planning the group's outer limits. Keep calm continuous background above, below and on both sides, extending to the canvas edges. Do not draw guides or percentage labels.
+Use a pulled-back wide view. Arrange one coherent visual group approximately within x=16%–84% and y=20%–80% of the 16:9 canvas. This is a layout envelope, not an exact width-and-height fill requirement. Preserve natural proportions and use a readable scale within it.
+Include the character, objects, exact labels, arrow tips, extended hands and feet, hair, soles, shadows, motion marks and collage edges when planning the group's outer limits. Leave broad uninterrupted background bands on the left and right beyond the group's outermost visible elements, as well as calm background above and below. Background extends to every canvas edge. Do not draw guides or percentage labels.
 Use a horizontal or low-slung arrangement. Place text beside or on the objects it explains; compact arrows and shadows stay close to their source. In a Workflow, integrate input and output with the core object's silhouette. “Giant” describes the object relative to the miniature character.
 Show the entire action and every required label clearly. Reference images provide identity and rendering only; do not inherit their close-up framing or subject scale. Keep the agreed meaning, contact and relative sizes intact. Crop nothing.
 ```
