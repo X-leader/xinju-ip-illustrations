@@ -14,7 +14,7 @@
 
 所有风格都必须读取 `composition-lock.md`，并把其中“生图 Prompt 构图锁定块”原样放入 Prompt。该块只给首次生成一个标称目标；QA 允许区间不能复制进首次 Prompt。该文件是唯一占比来源，风格块不得另写一套数字。
 
-组装 Prompt 前先做一次不展示给用户的布局预检：先摆放人物、主物件、输入输出、必须文字、箭头、动作线和注意符号，再列出完整视觉组最左、最右、最高和最低的真实元素；给人物、巨大主物件和必须文字分配互不冲突的区域，并确认所有元素都位于同一个安全框内。若某个可选批注会成为孤立的边缘外点，直接省略或内移。Workflow 的输入输出与短标签优先嵌入中央处理物的入口、出口或紧贴其轮廓，不外挂卡片或牌子。“巨大”只描述物件相对迷你人物的尺度差，不表示物件相对画布铺满。
+组装 Prompt 前先做一次不展示给用户的布局预检：先摆放人物、主物件、输入输出、必须文字、箭头、动作线、注意符号、人物头发与鞋底、平涂硬边投影、接触阴影和拼贴裁切外缘，再列出完整视觉组最左、最右、最高和最低的真实元素；给人物、巨大主物件和必须文字分配互不冲突的区域，并确认所有元素都位于同一个安全框内。16:9 横版优先使用横向展开、低矮团块、浅对角线或环形关系；如果结构过高，先减少纵向堆叠，把人物移向侧面、斜侧或较低操作位，并收紧阴影与动作线，最后才整体缩放。若某个可选批注会成为孤立的边缘外点，直接省略或内移。Workflow 的输入输出与短标签优先嵌入中央处理物的入口、出口或紧贴其轮廓，不外挂卡片或牌子。“巨大”只描述物件相对迷你人物的尺度差，不表示物件相对画布铺满。
 
 在最终 Prompt 前增加一个简短的 `Variation lock`：写明本图选用的动作族、表情族、人物朝向、人与物件的接触关系和构图骨架。与当前正文、短口播或可见对话中的近期配图比较；语义不要求重复时，五个变化轴中至少更换两项。禁止自动选择“侧面推巨大物件＋眯眼咬牙＋眼镜滑落＋左入右出”。
 
@@ -65,7 +65,7 @@ Action-linked expression and body distortion:
 {根据物理动作明确眼睛、眉毛、嘴、眼镜角度、脖子、四肢和重心如何变化。只要脸部可见，就必须写明并画出可读的嘴形，不得省略。表情必须与动作因果一致，可夸张怪诞，但不能改变身份特征。}
 
 Composition:
-{角色位置、默认一个相对迷你人物巨大的核心物件、尺度反差、信息流向，以及完整视觉组如何收拢至画面中央；这里不重复尺寸数字。只有第二个物件承担不可替代的因果职责时才加入}
+{角色位置、默认一个相对迷你人物巨大的核心物件、尺度反差、信息流向，以及完整视觉组如何以低矮、横向有存在感的方式收拢至画面中央并保留上下安静背景带；这里不重复尺寸数字。只有第二个物件承担不可替代的因果职责时才加入}
 
 Essential object plan:
 Core object: {一个轮廓清楚且去掉文字后仍可识别的物件；普通概念物件保留 2–4 处有效细节，产品、工作台、节点编辑器或系统局部保留 4–6 处有效细节}
@@ -151,7 +151,7 @@ Keep the confirmed meaning, character identity, decisive action, contact point, 
 构图偏向一侧、过满或主体太小：
 
 ```text
-Use this correction only when the image has visible edge-hugging, cropping, spatial pressure, imbalance, or unreadably small content; never use it for a height or width percentage alone. Keep the content, object count, character identity, action, expression, exact labels, and selected rendering style unchanged. Lock the character's existing pixels, identity, pose, facial expression, line quality, color treatment and material appearance; do not redraw, restyle or beautify the character. Recompose the entire visual group as one unit without changing any internal relative coordinates. The current group is approximately {当前宽度}% wide and {当前高度}% high. Move from {贴边／裁切／明显压迫／明显偏左／明显偏右／过小难读} to one nominal target: about 80% width and 68% height for a standard horizontal composition, or about 83% width and 68% height for a horizontal Workflow. Center the group, preserve clear four-side whitespace, keep every label and arrow tip inside the same group boundary, and crop nothing. Do not add perceived-visual-weight or negative-space percentages to this edit prompt. Add nothing and change no content.
+Use this correction only when the image has visible edge-hugging, cropping, spatial pressure, imbalance, broken top or bottom breathing space, or unreadably small content; never use it for a height or width percentage alone. Keep the content, object count, character identity, action, expression, exact labels, and selected rendering style unchanged. Lock the character's existing pixels, identity, pose, facial expression, line quality, color treatment and material appearance; do not redraw, restyle or beautify the character. Recompose the entire visual group as one unit without changing any internal relative coordinates. The current group is approximately {当前宽度}% wide and {当前高度}% high. Move from {贴边／裁切／明显压迫／上下留白断裂／明显偏左／明显偏右／过小难读} to one nominal target: about 80% width and 64% height for a standard horizontal composition, or about 83% width and 64% height for a horizontal Workflow. Center the group, preserve clear four-side whitespace and calm uninterrupted background bands above and below, keep every label, arrow tip, shadow and collage edge inside the same group boundary, and crop nothing. Do not add perceived-visual-weight or negative-space percentages to this edit prompt. Add nothing and change no content.
 ```
 
 Workflow 横向关系不清或铺得过满：
