@@ -12,9 +12,11 @@
 
 新增风格必须在同一个 Prompt 中按“画幅与参考图职责 → 构图锁（最高优先级）→ 内容锁 → 人物身份锁 → 渲染锁 → 最终文字检查”排序。构图与当前内容优先于风格文字规则。
 
-所有风格都必须读取 `composition-lock.md`，并把其中“生图 Prompt 构图锁定块”原样放入 Prompt。该块只给首次生成一个标称目标；QA 允许区间不能复制进首次 Prompt。该文件是唯一占比来源，风格块不得另写一套数字。
+所有风格都必须读取 `composition-lock.md`，并按当前画幅使用其中“生图 Prompt 构图锁定块”。16:9 使用完整块，其他画幅只替换布局坐标一句；一次 Prompt 只保留一种画幅的布局意图。该区域用于容纳完整视觉组，不要求宽高同时填满；不加入额外 QA 比例或修正比例。该文件是唯一占比来源，风格块不得另写一套数字。
 
 组装 Prompt 前先做一次不展示给用户的布局预检：先摆放人物、主物件、输入输出、必须文字、箭头、动作线、注意符号、人物头发与鞋底、平涂硬边投影、接触阴影和拼贴裁切外缘，再列出完整视觉组最左、最右、最高和最低的真实元素；给人物、巨大主物件和必须文字分配互不冲突的区域，并确认所有元素都位于同一个安全框内。16:9 横版优先使用横向展开、低矮团块、浅对角线或环形关系；如果结构过高，先减少纵向堆叠，把人物移向侧面、斜侧或较低操作位，并收紧阴影与动作线，最后才整体缩放。若某个可选批注会成为孤立的边缘外点，直接省略或内移。Workflow 的输入输出与短标签优先嵌入中央处理物的入口、出口或紧贴其轮廓，不外挂卡片或牌子。“巨大”只描述物件相对迷你人物的尺度差，不表示物件相对画布铺满。
+
+将预检结果压缩成 `Composition` 的 2–3 句具体摆放描述：人物在哪个接触点、最高与最低元素是什么、文字与箭头贴近哪个物件。给文字分配位置后再估计完整视觉组，不能先占满区域再在顶端或底端追加标签。保持场景自然宽高关系；普通结构与 Workflow 共用同一布局区域，无需加入另一套填满要求。
 
 在最终 Prompt 前增加一个简短的 `Variation lock`：写明本图选用的动作族、表情族、人物朝向、人与物件的接触关系和构图骨架。与当前正文、短口播或可见对话中的近期配图比较；语义不要求重复时，五个变化轴中至少更换两项。禁止自动选择“侧面推巨大物件＋眯眼咬牙＋眼镜滑落＋左入右出”。
 
@@ -47,7 +49,7 @@ Reference image roles:
 Image 1 is the sole identity reference. Image 2 is a style-only board. Copy no pose, object, layout, annotation or composition from either image.
 
 Unified composition lock — highest priority:
-{原样粘贴 composition-lock.md 的“生图 Prompt 构图锁定块”；不要在其他段落重复构图数字}
+{使用 composition-lock.md 的“生图 Prompt 构图锁定块”；只保留当前画幅的布局句，不在其他段落重复构图数字}
 
 Theme:
 {正文或短口播配图主题}
@@ -151,13 +153,13 @@ Keep the confirmed meaning, character identity, decisive action, contact point, 
 构图偏向一侧、过满或主体太小：
 
 ```text
-Use this correction only when the image has visible edge-hugging, cropping, spatial pressure, imbalance, broken top or bottom breathing space, or unreadably small content; never use it for a height or width percentage alone. Keep the content, object count, character identity, action, expression, exact labels, and selected rendering style unchanged. Lock the character's existing pixels, identity, pose, facial expression, line quality, color treatment and material appearance; do not redraw, restyle or beautify the character. Recompose the entire visual group as one unit without changing any internal relative coordinates. The current group is approximately {当前宽度}% wide and {当前高度}% high. Move from {贴边／裁切／明显压迫／上下留白断裂／明显偏左／明显偏右／过小难读} to one nominal target: about 80% width and 64% height for a standard horizontal composition, or about 83% width and 64% height for a horizontal Workflow. Center the group, preserve clear four-side whitespace and calm uninterrupted background bands above and below, keep every label, arrow tip, shadow and collage edge inside the same group boundary, and crop nothing. Do not add perceived-visual-weight or negative-space percentages to this edit prompt. Add nothing and change no content.
+Use only for this observed visible defect: {具体受损元素及可见后果，不能只写比例偏差}. Keep meaning, objects, exact text, identity, action and rendering unchanged. Make only the uniform scaling or translation needed to resolve the defect while preserving the complete group's aspect ratio, contact and internal relative positions. Use the original composition envelope from `composition-lock.md`; do not introduce a new width/height target or try to fill both dimensions exactly. Preserve the character's existing pose, expression, line quality, colors and material. Show all required elements clearly with calm background on every side. Add nothing.
 ```
 
 Workflow 横向关系不清或铺得过满：
 
 ```text
-Keep the confirmed workflow meaning, objects, labels, character identity, action, expression, and rendering style unchanged. Recompose only the workflow using the exact horizontal Workflow values in `composition-lock.md`. Keep 3–5 causally connected nodes, make the central processing object largest, keep input and output smaller, use one dominant path, and let the active character operate only the decisive transformation. Remove equal distribution, disconnected islands, extra branches, UI boxes, edge-hugging and thin-strip composition.
+Use only when the workflow's causal path is visibly broken or required elements are cropped or unreadable. Keep the confirmed workflow meaning, objects, labels, character identity, action, expression, and rendering style unchanged. Restore the broken relation within the shared layout envelope in `composition-lock.md`. Keep 3–5 causally connected nodes, make the central processing object largest, keep input and output smaller, use one dominant path, and let the active character operate only the decisive transformation. Do not rescale a readable intact workflow merely to match a percentage.
 ```
 
 关键中文错误：
