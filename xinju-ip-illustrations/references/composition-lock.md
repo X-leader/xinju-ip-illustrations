@@ -8,11 +8,11 @@
 
 - 使用方案中确认的画幅；默认 16:9 横版，其他比例必须原生构图。
 - 把当前活动人物、默认一个核心物件、必要输入输出、箭头、短标注，以及人物头发最高点、鞋底、投影、动作线、拼贴裁切边等最外侧可见元素视为一个完整视觉组；仅在第二个物件具有不可替代的因果职责时保留它。元素计数与细节预算执行 `composition-patterns.md`。
-- 完整视觉组应当居中、清楚、容易阅读。使用拉远的完整场景取景，背景延伸到画布四边；参考图只能提供人物身份或渲染语言，不能继承参考图的近景、放大倍率或画面密度。
-- 所有 16:9 横版共用一个首稿布局区域：x=16%–84%、y=20%–80%，即中央约 68% 宽、60% 高的区域，左右各预留约 16%、上下各预留约 20% 的安静背景。这里是完整视觉组的近似容纳区域，不是要求宽度和高度同时精确填满，也不是生成后修正门槛。
-- 保持人物、物件和完整视觉组的自然宽高关系，在该区域内选择尽可能清楚的尺度。先设计适合横版的结构，再以限制更紧的一边决定等比尺度；不能为命中两个百分比横向拉伸、纵向压扁，或为凑满宽度把文字、箭头向外撑开。
+- 完整视觉组应当居中、清楚、容易阅读。使用拉远的完整场景取景，先预留左右宽而连续的安静背景带，再将完整动作场景放入中央区域；不要为了放大人物、物件或文字而侵占两侧背景。背景延伸到画布四边；参考图只能提供人物身份或渲染语言，不能继承参考图的近景、放大倍率或画面密度。
+- 所有 16:9 横版共用一个首稿布局区域：x=20%–80%、y=20%–80%，即中央约 60% 宽、60% 高的区域，左右与上下各预留约 20% 的安静背景。这里是完整视觉组的近似容纳区域，不要求主体填满中央区域，也不是生成后修正门槛。
+- 保持人物、物件和完整视觉组的自然宽高关系，在保留两侧背景的前提下保证动作与文字可读。先设计适合横版的紧凑结构，再以限制更紧的一边决定等比尺度；不能为命中两个百分比横向拉伸、纵向压扁，或为凑满宽度把文字、箭头向外撑开。
 - 所有短标注、箭头端点、输入输出、动作线、头发尖端、鞋底、投影和拼贴外缘都必须收在同一个完整视觉组边界内；先布置全部元素，再用真正最外侧的四个锚点复核边界。不能用一条孤立文字、卡片、牌子、箭头、阴影或装饰边把外接范围顶到画布边缘。
-- “巨大主物件”只表示它相对迷你人物巨大；相对画布仍应保持中等尺度和完整白边，绝不等于铺满画布。
+- “巨大主物件”只表示它相对迷你人物巨大；相对画布仍应保持中等尺度和四周安静背景，绝不等于铺满画布。留白是所选风格的背景：线稿为纯白，平涂与拼贴保留各自色场或纸面，不添加白色边框。
 - 四周都要有连续、可感知的背景。首稿 Prompt 只出现当前画幅对应的一组布局坐标；不加入修正目标、视觉重量、空白占比或其他尺寸下限。布局区域是内部指导，不能画出边框、坐标、百分比或裁切线。
 - 所有元素不得贴边或裁切。优先保证完整呈现、动作与文字可读，再保持平衡的视觉中心和近似布局区域。
 
@@ -22,7 +22,7 @@
 
 - 人物脚底、最高物件、最左输入和最右输出大致落在同一组构图坐标内。
 - 人物、物件、文字、动作、接触关系、相对大小和信息方向保持一致。
-- 平涂的硬边投影和拼贴的裁切边、叠纸阴影不能成为缩小核心视觉组的理由；线稿也不能因颜色轻而放大到贴边。
+- 平涂的硬边投影和拼贴的裁切边、叠纸阴影在首稿中紧贴来源，并计入完整视觉组；不得用长投影或宽裁切边侵占背景，也不因换风格额外缩放可读场景。线稿不能因颜色轻而放大到贴边。
 
 ## 横版 Workflow
 
@@ -37,18 +37,19 @@
 - 16:9 横版优先使用横向展开、低矮团块、浅对角线或环形构图，避免把人物、主物件、标签和输出连续向上堆叠。人物位于巨大物件顶部、悬挂在物件下方或跨坐环形结构时，也必须先检查真实最高点与最低点。
 - 顶部和底部都要保留连续、安静、可感知的背景带。顶部不放孤立标题、箭头尖端、发梢或注意符号；底部不让鞋底、接触阴影、硬边投影、运动线或拼贴撕纸边压住画布边缘。
 - 发现构图过高时，依次处理：减少纵向堆叠 → 把人物移动到物件侧面、斜侧或较低的操作位 → 将输入输出改为横向或紧贴主物件 → 收紧投影、箭头和动作线 → 最后才等比缩放完整视觉组。
-- 上述调整用于首次构图设计，不得改变核心因果、人物决定性动作、物件身份或必须文字。目标是增加上下呼吸，同时保留横向存在感，不能把内容缩成中央小图。
+- 上述调整用于首次构图设计，不得改变核心因果、人物决定性动作、物件身份或必须文字。目标是增加上下呼吸，同时保持动作、物件身份与文字清楚；主体未填满中央区域不属于问题。
 
 ## 横版左右呼吸
 
 - 左右背景带从最外侧的真实可见元素算起：箭头尖端、标签、伸出的手脚、硬边投影、动作线和拼贴边均计入；不能只检查主物件轮廓。左右背景应宽而连续，核心动作仍有清楚的中央重心。
 - 首稿预检发现横向过长时，依次处理：缩短连接线与箭头 → 把输入输出靠近主物件 → 将标签放在物件内或紧邻对应位置 → 收紧投影与拼贴外缘 → 最后才等比缩放完整视觉组。保持核心因果、必要文字、人物自然比例和可读性。
+- 人物与物件在决定性接触点形成紧凑关系，不分居画面两端；箭头只需清楚表达方向，不作为伸向边缘的装饰。保留有效物件细节、人物比例和动作力度，不通过删除关键内容换取留白。
 - 普通结构与 Workflow、三种渲染风格共用这一原则；不得为保持旧版宽度把流程、环形物件、文字或箭头向两侧撑开。
 - 这些调整在首稿设计时完成。生成后只有轻微布局越界或左右留白不完全相等时，直接采用初稿，不追加比例修正。
 
 ## 中间尺度构图规则
 
-中间尺度是三种风格的新默认，不是临时候选：它位于“几乎铺满画面”和“缩成中央小图”之间，让主体保持清晰存在感，同时给四周留出可感知的呼吸空间。
+中间尺度是三种风格的默认：以四周安静背景和动作、物件身份、文字的可读性共同决定，不以填满中央区域决定。“不能缩成中央小图”只指不得缩到上述内容难以辨认，不要求额外放大可读场景。
 
 - 量化对象始终是人物、主物件、输入输出、路径、箭头、所有短标注、人物头发与鞋底、投影、动作线和拼贴外缘组成的完整视觉组。不要只量人物，也不要用白色像素比例代替负空间判断；线稿物件内部可能含有大量白色。
 - 生成后沿用首稿的中央布局意图，不使用额外的宽高允许区间或填满要求。近似坐标偏差只记录为观察项；只要画面完整、四周有可见背景、动作与文字清楚，就直接采用初稿。
@@ -57,7 +58,7 @@
 - 只有已经指出具体受损元素和可见后果时才修正，例如“右端箭头被裁掉”“顶部标签贴住边缘导致拥挤”。沿用共用布局区域，只做解决该缺陷所需的等比缩放或平移；不把修正当成让宽高同时命中数字的第二次设计。
 - 已有过满版本和过度缩小版本都只作为尺度边界参考。编辑时从当前最佳版本出发，不在较差版本上继续缩放或补救。
 - 只有出现实际裁切、元素紧贴画布边缘并形成明显空间压迫、明显偏心影响主次，或小到动作与必须文字难以阅读时，才属于需要修正的构图硬缺陷。不能仅凭“离目标比例有差距”“背景带不够等宽”或“视觉重量不足”调用第二次 image_gen。
-- 若一次修正把主体缩成中央小图，或虽增加留白却削弱动作、文字可读性和记忆点，则判定为过度修正；按最佳版本保护规则回退。
+- 若一次修正把主体缩到动作、物件身份或必须文字难以辨认，或虽增加留白却削弱动作、文字可读性和记忆点，则判定为过度修正；按最佳版本保护规则回退。
 - 宽度、高度和四边留白无需同时精确命中。保留自然宽高关系和可读性，不为追逐单个百分比破坏内容。
 
 ## 生图 Prompt 构图锁定块
@@ -66,9 +67,9 @@
 
 ```text
 Composition lock — full scene with breathing room:
-Use a pulled-back wide view. Arrange one coherent visual group approximately within x=16%–84% and y=20%–80% of the 16:9 canvas. This is a layout envelope, not an exact width-and-height fill requirement. Preserve natural proportions and use a readable scale within it.
-Include the character, objects, exact labels, arrow tips, extended hands and feet, hair, soles, shadows, motion marks and collage edges when planning the group's outer limits. Leave broad uninterrupted background bands on the left and right beyond the group's outermost visible elements, as well as calm background above and below. Background extends to every canvas edge. Do not draw guides or percentage labels.
-Use a horizontal or low-slung arrangement. Place text beside or on the objects it explains; compact arrows and shadows stay close to their source. In a Workflow, integrate input and output with the core object's silhouette. “Giant” describes the object relative to the miniature character.
+Use a pulled-back wide view. Reserve broad calm background bands on the left and right first, then place one coherent action scene approximately within x=20%–80% and y=20%–80% of the 16:9 canvas. This is a layout envelope, not a fill requirement. Preserve natural proportions and readable action and text; do not enlarge the scene merely to fill unused space or intrude into the side background.
+Include the character, objects, exact labels, arrow tips, extended hands and feet, hair, soles, shadows, motion marks and collage edges when planning the group's outer limits. Keep uninterrupted background beyond these outermost elements on both sides, with calm background above and below. Extend the selected style's background to every canvas edge: white for line art, its color field or paper for the other styles. Add no white border, guides or percentage labels.
+Use a compact horizontal or low-slung arrangement. Keep the character at the decisive contact point rather than opposite the object across the canvas. Place text beside or on the objects it explains; short directional arrows and local shadows stay close to their source. In a Workflow, keep input and output near the core object's silhouette. Preserve meaningful object details and action strength. “Giant” describes the object relative to the miniature character.
 Show the entire action and every required label clearly. Reference images provide identity and rendering only; do not inherit their close-up framing or subject scale. Keep the agreed meaning, contact and relative sizes intact. Crop nothing.
 ```
 
