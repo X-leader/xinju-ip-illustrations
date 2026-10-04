@@ -207,8 +207,6 @@ xinju-ip-illustrations/references/character-ip.md
 
 Skill 规则、脚本和普通文档采用 [MIT License](LICENSE)。Xinju 人物母板、角色形象和品牌资产不包含在 MIT 授权范围内，使用规则见 [`NOTICE.md`](NOTICE.md) 和 [`assets/ip/ASSET_LICENSE.md`](xinju-ip-illustrations/assets/ip/ASSET_LICENSE.md)。
 
-## 致谢与来源
+## 致谢
 
-本项目的早期工作流设计、正文配图方法和部分规则组织方式基于或参考了 Ian 创建的 [Ian Xiaohei Illustrations](https://github.com/helloianneo/ian-xiaohei-illustrations) 与 [Ian Xiaohei Scenes](https://github.com/helloianneo/ian-xiaohei-scenes)。原项目采用 MIT License。
-
-本项目已针对 Xinju 人物 IP、三种渲染风格、活动人物替换、构图控制、物件预算、数字选风格与自动 QA 流程进行了修改和扩展。完整第三方声明见 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)。
+感谢 Ian 的 [Ian Xiaohei Illustrations](https://github.com/helloianneo/ian-xiaohei-illustrations)（MIT License），为本项目早期的正文配图方法与部分流程设计提供参考。Xinju 人物 IP、自定义人物、三种渲染风格及配图交互等功能由本项目进一步设计与扩展。完整第三方声明见 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)。
