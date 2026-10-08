@@ -152,10 +152,18 @@ Keep the confirmed meaning, character identity, decisive action, contact point, 
 Keep the confirmed meaning, character identity, decisive action, contact point, labels, composition scale and selected style unchanged. Simplify only the objects by following the deletion ladder in `composition-patterns.md`: remove decorative internals; merge repeated gauges, modules and states; merge input/output symbols; remove the supporting prop; remove every secondary action. Preserve one clear outer silhouette, the identity cue, operation point, causal detail and at most one restrained material or structural cue family. Retain 2–4 meaningful details for an ordinary conceptual object, or 4–6 for a product, workbench, node editor or system detail; do not collapse the object into a generic icon. If it remains a compound machine, replace it with a clearer object that preserves the same causal meaning and remains recognizable without text. Keep at most four visible roles in total. The character's action and causal change must read before object internals. Add nothing new.
 ```
 
-构图偏向一侧、过满或主体太小：
+构图偏向一侧、过满或边缘受损：
 
 ```text
-Use only for this observed visible defect: {具体受损元素及可见后果，不能只写比例偏差}. Keep meaning, objects, exact text, identity, action and rendering unchanged. Make only the uniform scaling or translation needed to resolve the defect while preserving the complete group's aspect ratio, contact and internal relative positions. Use the original composition envelope from `composition-lock.md`; do not introduce a new width/height target or try to fill both dimensions exactly. Preserve the character's existing pose, expression, line quality, colors and material. Show all required elements clearly with calm background on every side. Add nothing.
+Use only for this observed visible defect: {具体受损元素、受损边及可见后果，不能只写比例偏差}. Keep meaning, objects, exact text, identity, action and rendering unchanged. Correct only that edge defect. First use the smallest translation that resolves it; only if translation cannot resolve it, use the smallest necessary uniform scale reduction. Do not quote, reuse or target any x/y percentage, central layout envelope, broad or large whitespace requirement, safe-frame fit or new margin value. Preserve the original apparent subject size, readability, visual impact, contact and all internal relative positions. Preserve the character's existing pose, expression, line quality, colors and material. If the result becomes visibly smaller, turns into a tiny centered group, or weakens the action, object identity, exact text or memorable focal point, reject it and keep the original. Add nothing.
+```
+
+这是修正专用短 Prompt，不附加首稿的构图锁定块，也不把首稿布局坐标改写成修正目标。
+
+主体已经小到动作、物件身份或必须文字难以辨认：
+
+```text
+Use only for this observed readability defect: {具体难以辨认的动作、物件身份或必须文字}. Keep meaning, objects, exact text, identity, action, contact, relative positions and rendering unchanged. Apply only the smallest uniform enlargement needed to restore clear reading while keeping every outer element fully visible. Do not quote, reuse or target any x/y percentage, central layout envelope, broad or large whitespace requirement, safe-frame fit or new margin value. Preserve calm visible background on all four sides, but do not maximize margins. Add nothing.
 ```
 
 Workflow 横向关系不清或铺得过满：
